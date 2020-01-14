@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	body { padding-top: 70px; }
+	
+    <title>TKDE-19-RRW</title>
+  </head>
+  
+  
+  <body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+	  <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Home</a>
+      </div>
+	  
+	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Publications</a></li>
+		<li><a href="#">CV</a></li>
+		<li><a href="#">Contacts</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+	  
+	</div>
+  </nav>
+	
+
+  <div class="jumbotron">
+	<div class="container" align="center">
+    <h1 style="font-size: 50px">Learning Single and Cross Network Node Representation via Radial Random Walk</h1>
+    </div>
+  </div>
+	
+	
+  <div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+	<div class="col-md-8">
+	  <div class="page-header"><h1>Abstract</h1></div>
+	  <p style="font-size: 18px;">Network embedding for vector-like node representation in networks has recently attracted intensive attention. Most existing methods are focused on single-net embedding, and the current single-network embedding methods can hardly have the two desirable properties at the same time: 1) scalability for large-scale networks; 2) ability to incorporate both multi-order proximity and BFS/DFS structure information for more effective representation learning. On the other hand, for the emerging and practically important problem of cross-network embedding and its application like network alignment, most existing works train each graph's embedding separately and learn an alignment function afterwards, which is not end-to-end hence can be non-optimal for overall optimization.<br>
+      In this paper, we propose <b><em>Rep-Align</em></b>, a framework for both single-net and cross-net embedding. For single-net, we first devise an unsupervised shallow embedding model that jointly models the 1st-order proximity and 2nd-order proximity via Laplacian Eigenmaps and probabilistic model, respectively. Also the higher-order (3rd or higher) proximity is explicitly modeled via an objective based on weighted multi-hop adjacency matrix. Moreover, structure preservation that accounts for both local and global structure is also considered in the paper. In particular, the higher-order proximity as well as the structure model can be solved by our proposed Radial Random Walk strategy, which is fast and theoretically sound based on our analysis.<br>
+      For the case of cross-net embedding, we propose a weakly-supervised method which performs joint node embedding and network alignment based on the given seed matchings. The cross-net embedding model adopts Gaussian Mixture Model (GMM) for constraints between seed matching nodes or estimated matching nodes. The Expectation-Maximization (EM) framework is adopted to effectively boost the seed matching correspondence between two networks. Experiments are performed on real-world datasets on tasks including node multi-label classification, network reconstruction, and network alignment. The results show the state of the art performance of the proposed methods compared with the peer methods for both single-net embedding and network alignment.</p>
+    </div>
+	<div class="col-md-2"></div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-2"></div>
+	<div class="col-md-8">
+	  <div class="page-header"><h1>Demo</h1></div>
+	  <h3>Single-net embedding:</h3>
+	  <div class="row">
+	    <div class="col-md-6" align="middle"><img src="pic/karate.gif" width=320 height=240 ><p style="float:center">(a) Dynamic embedding procedure of the karate network</p></div>
+		<div class="col-md-6" align="middle"><img src="pic/karate.png" width=320 height=240 ><p style="float:center">(b) Embedding result of the karate network</p></div>
+	  </div>
+	  <p style="font-size: 18px;">From the dynamic single-net embedding procedure, we can easily observe how nodes attract with their neighbors and get far away from the others. And from the embedding PCA result as is in Fig.(b), we can safely claim that nodes which are embedded closely usually shares first-, second-, or higher-order proxmity.</p>
+	  
+	  <h3>Cross-net embedding:</h3>
+	  <div class="row">
+	    <div class="col-md-6" align="middle"><img src="pic/cross-karate.gif" alt="cross-karate" width=320 height=240 ><p style="float:center">(c) Dynamic embedding procedure of the karate network</p></div>
+		<div class="col-md-6" align="middle"><img src="pic/cross-karate.png" alt="cross-karate" width=320 height=240 ><p style="float:center">(d) Embedding result of the karate network</p></div>
+	  </div>
+	  <div align="middle"><img src="pic/cross-karate-3d.png" alt="cross-karate" width=320 height=240 ><p style="float:center">(e) Embedding result of the karate network</p></div>
+	  <p style="font-size: 18px;">here.</p>
+	  
+    </div>
+	<div class="col-md-2"></div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-2"></div>
+	<div class="col-md-8">
+	  <div class="page-header"><h1>Code</h1></div>
+	  <p style="font-size: 18px;">Link:</p>
+    </div>
+	<div class="col-md-2"></div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-2"></div>
+	<div class="col-md-8">
+	  <div class="page-header"><h1>Data</h1></div>
+	  <ul style="font-size: 18px;">
+	    <li>YouTube</li>
+	    <li>Facebook-Twitter</li>
+		<li>Douban-Weibo</li>
+	  </ul>
+    </div>
+	<div class="col-md-2"></div>
+  </div>
+  
+    <div class="row">
+    <div class="col-md-2"></div>
+	<div class="col-md-8">
+	  <div class="page-header"><h1>Paper</h1></div>
+	  <p style="font-size: 18px;">Link:</p>
+    </div>
+	<div class="col-md-2"></div>
+  </div>
+  
+  </div>
+  
+  
+  
+  
+  
+  <div class="copyright" style="text-align:center;color:gray"><p>powered by Hao Xiong</p></div>
+	
+	
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
